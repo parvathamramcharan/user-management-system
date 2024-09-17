@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import './App.css'; 
+import './App.css';
+
 function App() {
   const [users, setUsers] = useState([]);
   const [formData, setFormData] = useState({
@@ -12,14 +13,16 @@ function App() {
   const [isEditing, setIsEditing] = useState(false);
   const [editUserId, setEditUserId] = useState(null);
 
-  
+  // Get the base URL from environment variables
+  const backendBaseUrl = import.meta.env.VITE_REACT_APP_BACKEND_BASEURL;
+
   useEffect(() => {
     fetchUsers();
   }, []);
 
   const fetchUsers = async () => {
     try {
-      const response = await axios.get('https://user-management-system-five-sepia.vercel.app/allusers');
+      const response = await axios.get(`${backendBaseUrl}/allusers`);
       setUsers(response.data);
     } catch (err) {
       console.error('Error fetching users:', err);
@@ -28,10 +31,6 @@ function App() {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    // setFormData((prevData) => ({
-    //   ...prevData,
-    //   [name]: value
-    // })); or 
     setFormData({
       ...formData,
       [name]: value
@@ -42,15 +41,13 @@ function App() {
     e.preventDefault();
     try {
       if (isEditing) {
-        
-        await axios.put(`https://user-management-system-five-sepia.vercel.app/userupdate/${editUserId}`, formData);
+        await axios.put(`${backendBaseUrl}/userupdate/${editUserId}`, formData);
         setIsEditing(false);
         setEditUserId(null);
       } else {
-       
-        await axios.post('https://user-management-system-five-sepia.vercel.app/createusers', formData);
+        await axios.post(`${backendBaseUrl}/createusers`, formData);
       }
-      fetchUsers(); 
+      fetchUsers();
       setFormData({ name: '', email: '', age: '', phone: '' }); // Clear form
     } catch (err) {
       console.error('Error submitting form:', err);
@@ -59,8 +56,8 @@ function App() {
 
   const handleDelete = async (id) => {
     try {
-      await axios.delete(`https://user-management-system-five-sepia.vercel.app/userdelete/${id}`);
-      fetchUsers(); 
+      await axios.delete(`${backendBaseUrl}/userdelete/${id}`);
+      fetchUsers();
     } catch (err) {
       console.error('Error deleting user:', err);
     }
@@ -80,8 +77,6 @@ function App() {
   return (
     <div>
       <h1>User Management System</h1>
-
-     
       <form onSubmit={handleSubmit}>
         <input
           type="text"
