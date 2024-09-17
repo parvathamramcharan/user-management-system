@@ -1,0 +1,5 @@
+POST http://localhost:4000/student/createusers
+GET http://localhost:4000/student/allusers
+GET http://localhost:4000/student/users/:id
+PUT http://localhost:4000/student/userupdate/:id
+DELETE http://localhost:4000/student/userdelete/:id

@@ -1,0 +1,104 @@
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f9;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  h1 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+  }
+  
+  h2 {
+    color: #666;
+    margin-top: 40px;
+  }
+  
+  /* .container {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    max-width: 800px;
+    width: 100%;
+  } */
+  
+  /* Form styling */
+  form {
+    display: flex;
+    /* flex-direction: column; */
+    gap: 15px;
+    margin-bottom: 30px;
+  }
+  
+  input {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+  }
+  
+  button {
+    padding: 10px 15px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+  }
+  
+  button:hover {
+    background-color: #218838;
+  }
+  
+  /* Table styling */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+  }
+  
+  th, td {
+    padding: 15px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  th {
+    background-color: #f4f4f9;
+    font-weight: bold;
+  }
+  
+  tr:hover {
+    background-color: #f1f1f1;
+  }
+  
+  button.delete {
+    background-color: #dc3545;
+  }
+  
+  button.delete:hover {
+    background-color: #c82333;
+  }
+  
+  button.edit {
+    background-color: #007bff;
+  }
+  
+  button.edit:hover {
+    background-color: #0056b3;
+  }
+  
+  .actions {
+    display: flex;
+    gap: 10px;
+  }
+  
