@@ -1,5 +1,6 @@
 const express = require('express')
 const cors= require('cors')
+require('dotenv').config();
 const mongoose = require('mongoose')
 // const User = require('./Model/user')
 const user = require('./routes/route')
@@ -15,7 +16,7 @@ app.use(cors({
 app.get('/',(req,res)=>{
     res.send("hello");
 })
-const MONGO_URL="mongodb+srv://parvathamramcharan7:Msdhoni133@cluster0.f3nc6.mongodb.net/usermanage?retryWrites=true&w=majority&appName=Cluster0"
+const MONGO_URL = process.env.MONGO_URL;
 
 mongoose.connect(MONGO_URL)
 .then( ()=> console.log("mongodb connected"))
