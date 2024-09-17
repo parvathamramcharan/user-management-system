@@ -7,8 +7,8 @@ const user = require('./routes/route')
 const app = express();
 app.use(express.json());
 const corsOptions = {
-    // origin: 'https://your-frontend-domain.com', // Replace with your actual frontend domain
-    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+     origin: ["https://user-management-system-frontend-beta.vercel.app/" ] // Replace with your actual frontend domain
+    methods: ["GET","HEAD","PUT","PATCH","POST","DELETE"],
     allowedHeaders: 'Content-Type, Authorization',
   };
   
