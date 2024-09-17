@@ -19,7 +19,7 @@ function App() {
 
   const fetchUsers = async () => {
     try {
-      const response = await axios.get('http://localhost:4000/student/allusers');
+      const response = await axios.get('https://user-management-system-sandy.vercel.app/allusers');
       setUsers(response.data);
     } catch (err) {
       console.error('Error fetching users:', err);
@@ -43,12 +43,12 @@ function App() {
     try {
       if (isEditing) {
         
-        await axios.put(`http://localhost:4000/student/userupdate/${editUserId}`, formData);
+        await axios.put(`https://user-management-system-sandy.vercel.app/userupdate/${editUserId}`, formData);
         setIsEditing(false);
         setEditUserId(null);
       } else {
        
-        await axios.post('http://localhost:4000/student/createusers', formData);
+        await axios.post('https://user-management-system-sandy.vercel.app/createusers', formData);
       }
       fetchUsers(); 
       setFormData({ name: '', email: '', age: '', phone: '' }); // Clear form
@@ -59,7 +59,7 @@ function App() {
 
   const handleDelete = async (id) => {
     try {
-      await axios.delete(`http://localhost:4000/student/userdelete/${id}`);
+      await axios.delete(`https://user-management-system-sandy.vercel.app/userdelete/${id}`);
       fetchUsers(); 
     } catch (err) {
       console.error('Error deleting user:', err);
