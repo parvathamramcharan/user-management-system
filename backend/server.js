@@ -7,7 +7,7 @@ const user = require('./routes/route')
 const app = express();
 app.use(express.json());
 app.use(cors({
-  origin: 'https://user-management-system-frontend-beta.vercel.app'  // Allow only this origin
+  origin: 'https://user-management-system-front.vercel.app'  // Allow only this origin
 }));
   
   app.use(cors(corsOptions));
