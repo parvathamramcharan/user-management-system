@@ -10,7 +10,7 @@ app.use(cors());
 app.get('/',(req,res)=>{
     res.send("hello");
 })
-const MONGO_URL="mongodb://localhost:27017/PRACTICE"
+const MONGO_URL="mongodb+srv://parvathamramcharan7:Msdhoni133@cluster0.f3nc6.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
 
 mongoose.connect(MONGO_URL)
 .then( ()=> console.log("mongodb connected"))
