@@ -12,7 +12,7 @@ function App() {
   const [isEditing, setIsEditing] = useState(false);
   const [editUserId, setEditUserId] = useState(null);
 
-  // Fetch all users on component mount
+  
   useEffect(() => {
     fetchUsers();
   }, []);
@@ -42,15 +42,15 @@ function App() {
     e.preventDefault();
     try {
       if (isEditing) {
-        // Update user if in edit mode
+        
         await axios.put(`http://localhost:4000/student/userupdate/${editUserId}`, formData);
         setIsEditing(false);
         setEditUserId(null);
       } else {
-        // Create new user
+       
         await axios.post('http://localhost:4000/student/createusers', formData);
       }
-      fetchUsers(); // Refresh the list after adding or updating a user
+      fetchUsers(); 
       setFormData({ name: '', email: '', age: '', phone: '' }); // Clear form
     } catch (err) {
       console.error('Error submitting form:', err);
@@ -60,7 +60,7 @@ function App() {
   const handleDelete = async (id) => {
     try {
       await axios.delete(`http://localhost:4000/student/userdelete/${id}`);
-      fetchUsers(); // Refresh the list after deleting a user
+      fetchUsers(); 
     } catch (err) {
       console.error('Error deleting user:', err);
     }
@@ -81,7 +81,7 @@ function App() {
     <div>
       <h1>User Management System</h1>
 
-      {/* Form for Creating or Editing a User */}
+     
       <form onSubmit={handleSubmit}>
         <input
           type="text"
